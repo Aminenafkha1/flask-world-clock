@@ -24,3 +24,12 @@ services:
       - "9300:9300"
     environment:
       - discovery.type=single-node
+
+  grafana:
+      image: grafana/grafana:latest
+      ports:
+        - "3000:3000"
+      depends_on:
+        - elasticsearch
+      environment:
+        - GF_SECURITY_ADMIN_PASSWORD=your_password  
